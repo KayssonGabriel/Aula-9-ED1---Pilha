@@ -3,29 +3,25 @@ package pilha;
 import java.util.Scanner;
 
 public class App {
-
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int topo = 0;
-
-		String[] text = sc.nextLine().split(" ");
-
-		PilhaChar p1 = new PilhaChar();
-
-		for (int i = 0; i < text.length; i++) {
-			char[] letras = text[i].toCharArray();
-			for (int j = 0; j < letras.length; j++) {
-				topo = p1.push(topo, letras[j]);
-				if (j == text[i].length() - 1) {
-					p1.imprimir(topo);
-
-					topo = 0;
-					System.out.print(" ");
-
+		try (Scanner sc = new Scanner(System.in)) {
+			if (!sc.hasNextLine()) {
+				return;
+			}
+			String[] palavras = sc.nextLine().split(" ", -1);
+			PilhaChar pilha = new PilhaChar();
+			for (int i = 0; i < palavras.length; i++) {
+				if (i > 0) {
+					System.out.print(' ');
+				}
+				for (char letra : palavras[i].toCharArray()) {
+					pilha.push(letra);
+				}
+				while (!pilha.isEmpty()) {
+					System.out.print(pilha.pop());
 				}
 			}
-
+			System.out.println();
 		}
-		sc.close();
 	}
 }
