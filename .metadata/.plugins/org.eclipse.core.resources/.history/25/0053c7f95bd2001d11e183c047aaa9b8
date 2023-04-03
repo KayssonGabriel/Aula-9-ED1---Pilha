@@ -1,0 +1,35 @@
+package pilha;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int topo = 0;
+
+		String[] text = sc.nextLine().split(" ");
+
+		Pilha p1 = new Pilha();
+
+		for (int i = 0; i < text.length; i++) {
+			char[] letras = text[i].toCharArray();
+			for (int j = 0; j < letras.length; j++) {
+				topo = p1.push(topo, letras[j]);
+				if (j == letras.length - 1) {
+					for (int k = letras.length+1; k >0; k--) {
+						topo = p1.push(topo, letras[k]);
+					}
+
+					p1.imprimir(topo);
+				}
+			}
+
+			System.out.print(" ");
+		}
+
+		sc.close();
+
+	}
+
+}

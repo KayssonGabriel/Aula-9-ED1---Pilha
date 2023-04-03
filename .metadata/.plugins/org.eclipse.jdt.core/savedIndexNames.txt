@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\kayss\OneDrive\Área de Trabalho\ED1\Pilha\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2905237059.index
+4083301604.index
